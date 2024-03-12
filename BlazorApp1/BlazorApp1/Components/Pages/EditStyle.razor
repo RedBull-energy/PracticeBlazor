@@ -1,0 +1,21 @@
+﻿@page "/editStyle"
+@rendermode InteractiveServer
+<PageTitle>Edit style</PageTitle>
+ <div style="background-color: #5c636a; padding: 200px;">
+<h1>Edit style</h1>
+
+<button @onclick="ChangeColor">Edit color</button>
+
+<div style="width: 200px; height: 200px; background-color: @backgroundColor;"></div>
+</div>
+@code {
+    string backgroundColor = "lightblue";
+
+    void ChangeColor()
+    {
+        
+        Random random = new Random();
+        backgroundColor = String.Format("#{0:X6}", random.Next(0x1000000));
+    }
+
+}

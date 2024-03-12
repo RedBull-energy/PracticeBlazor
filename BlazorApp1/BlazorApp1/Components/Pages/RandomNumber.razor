@@ -1,0 +1,20 @@
+﻿@page "/randomNumber"
+@rendermode InteractiveServer
+<PageTitle>Random number</PageTitle>
+  <div style="background-color: #0dcaf0; padding: 200px;">
+    <h1>Random number</h1>
+    <button class="btn btn-primary" @onclick="Calculate">Click</button>
+    <p>Random number: @randomNumber</p>
+</div>
+@code
+{
+    private int randomNumber;
+    private void Calculate()
+    {
+        Random random = new Random();
+
+        randomNumber =  random.Next(0, 101);
+
+    }
+    
+}

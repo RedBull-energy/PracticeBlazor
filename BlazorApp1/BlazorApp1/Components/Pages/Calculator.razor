@@ -1,0 +1,52 @@
+﻿@page "/calculator"
+@rendermode InteractiveServer
+<PageTitle>calculator</PageTitle>
+<div style="background-color: lightblue; padding: 200px;">
+
+
+<h1>Calculator</h1>
+<input type="number" @bind-value="@numberOne">
+<input type="number" @bind-value="@numberTwo">
+
+<p>@exp</p>
+<button class="btn btn-primary" @onclick="Plus">+</button>
+<button class="btn btn-primary" @onclick="Minus">-</button>
+<button class="btn btn-primary" @onclick="Multiply">*</button>
+<button class="btn btn-primary" @onclick="Division">/</button>
+
+<p>Result: @result</p>
+</div>
+@code {
+    private int numberOne;
+    private int numberTwo;
+    private int result = 0;
+    private string exp = "";
+    private void Plus()
+    {
+        result = numberOne + numberTwo;
+    }
+
+    private void Minus()
+    {
+        result = numberOne - numberTwo;
+    }
+
+    private void Multiply()
+    {
+        result = numberOne * numberTwo;
+    }
+    
+    private void Division()
+    {
+        if (numberTwo == 0)
+        {
+            exp = "Error";
+        }
+        else
+        {
+            result = numberOne / numberTwo;
+        }
+        
+    }
+    
+}

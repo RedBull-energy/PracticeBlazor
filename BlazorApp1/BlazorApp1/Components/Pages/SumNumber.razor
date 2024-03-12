@@ -1,0 +1,29 @@
+﻿@page "/sumNumber"
+@rendermode InteractiveServer
+<PageTitle>Sum number</PageTitle>
+ <div style="background-color: #0f5132; padding: 200px;">
+<h1>Sum number</h1>
+
+<input type="number" @bind-value="@number">
+<button class="btn btn-primary" @onclick="Calculate">+</button>
+<p>Result: @sum</p>
+</div>
+@code
+{
+    private int number;
+    int sum;
+    bool showResult = false;
+
+    private void Calculate()
+    {
+        sum = 0;
+        for (int i = 1; i <= number; i++)
+        {
+            sum += i;
+        }
+        showResult = true;
+
+    }
+    
+    
+}

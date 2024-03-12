@@ -1,0 +1,39 @@
+﻿@page "/factorial"
+@rendermode InteractiveServer
+<PageTitle>Factorial</PageTitle>
+ <div style="background-color: #6f42c1; padding: 200px;">
+<h1>Factorial</h1>
+
+<input type="number" @bind-value="@number">
+<button class="btn btn-primary" @onclick="Calculate">Calculate</button>
+<p>Factorial: @factorial</p>
+<p>Double factorial: @doubleFactorial</p>
+</div>
+
+@code
+{
+    private int number;
+    private long factorial;
+    private long doubleFactorial;
+
+    private void Calculate()
+    {
+        factorial = CalculateFactorial(number);
+        doubleFactorial = CalculateDoubleFactorial(number);
+    }
+
+    long CalculateFactorial(int n)
+    {
+        if (n == 0)
+            return 1;
+        return n * CalculateFactorial(n - 1);
+    }
+
+    long CalculateDoubleFactorial(int n)
+    {
+        if (n <= 0)
+            return 1;
+        return n * CalculateDoubleFactorial(n - 2);
+    }
+    
+}

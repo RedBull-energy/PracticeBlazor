@@ -1,0 +1,13 @@
+﻿@page "/yourName"
+@rendermode InteractiveServer
+<PageTitle>Your name</PageTitle>
+  <div style="background-color: #664d03; padding: 200px;">
+<h1>Your Name</h1>
+<input @bind-value="@name">
+<p>Result: @name</p>
+</div>
+@code
+{
+    private string name;
+}
+
